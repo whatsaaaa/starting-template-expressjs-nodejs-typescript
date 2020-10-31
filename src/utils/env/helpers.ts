@@ -25,3 +25,7 @@ export function getEnvPaths(key: string): string[] {
 export function getEnvArray(key: string, delimiter: string = ","): string[] {
   return (process.env[key] && process.env[key].split(delimiter)) || [];
 }
+
+export function toBool(value: string): boolean {
+  return value === "true";
+}

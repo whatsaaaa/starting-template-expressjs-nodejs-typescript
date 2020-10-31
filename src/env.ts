@@ -2,7 +2,7 @@ import * as dotenv from "dotenv";
 import * as path from "path";
 
 import * as pkgjson from "../package.json";
-import { getEnv, getEnvPaths } from "./utils/env";
+import { getEnv, getEnvPaths, toBool } from "./utils/env";
 
 /**
  * Load .env file
@@ -25,6 +25,10 @@ export const env = {
     schema: getEnv("APPLICATION_SCHEMA"),
     routePrefix: getEnv("APPLICATION_ROUTE_PREFIX"),
     port: getEnv("APPLICATION_PORT"),
+    express: {
+      useCors: toBool(getEnv("EXPRESS_CORS")),
+      useClassTransform: toBool(getEnv("EXPRESS_CLASS_TRANSFORM")),
+    },
     paths: {
       controllers: getEnvPaths("APPLICATION_CONTROLLERS"),
     },
