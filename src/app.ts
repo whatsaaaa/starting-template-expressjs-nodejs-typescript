@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 import { terminal } from "./utils/terminal";
 import { Logger } from "./utils/logger";
 import { expressLoader } from "./loaders/expressLoader";

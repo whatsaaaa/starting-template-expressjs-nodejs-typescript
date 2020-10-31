@@ -2,7 +2,7 @@ import * as dotenv from "dotenv";
 import * as path from "path";
 
 import * as pkgjson from "../package.json";
-import { getEnv } from "./utils/env";
+import { getEnv, getEnvPaths } from "./utils/env";
 
 /**
  * Load .env file
@@ -25,6 +25,9 @@ export const env = {
     schema: getEnv("APPLICATION_SCHEMA"),
     routePrefix: getEnv("APPLICATION_ROUTE_PREFIX"),
     port: getEnv("APPLICATION_PORT"),
+    paths: {
+      controllers: getEnvPaths("APPLICATION_CONTROLLERS"),
+    },
   },
   log: {
     level: getEnv("LOG_LEVEL"),
