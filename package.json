@@ -2,7 +2,7 @@
   "name": "starting-template-expressjs-nodejs-typescript",
   "version": "1.0.0",
   "description": "Project structure for new expressjs/nodejs applications using TypeScript",
-  "main": "index.js",
+  "main": "src/app.ts",
   "scripts": {},
   "engines": {
     "node": ">=8.0.0"
