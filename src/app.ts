@@ -1,15 +1,16 @@
-import express from "express";
+import { terminal } from "./utils/terminal";
+import { Logger } from "./utils/logger";
+import { expressLoader } from "./loaders/expressLoader";
+import { winstonLoader } from "./loaders/winstonLoader";
 /**
  * EXPRESSJS NODEJS TYPESCRIPT Template
  * ----------------------------------------------
  */
-const app = express();
-const PORT = 8000;
+const log = new Logger(__filename);
 
-app.get("/", (req, res) => {
-  res.send("Express + Node + Typescript Server");
-});
-
-app.listen(PORT, () => {
-  console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
-});
+expressLoader()
+  .then(() => {
+    winstonLoader();
+    terminal(log);
+  })
+  .catch((error) => log.error("Application crashed: " + error));
