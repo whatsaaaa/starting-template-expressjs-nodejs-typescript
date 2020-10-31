@@ -1,0 +1,26 @@
+{
+  "name": "starting-template-expressjs-nodejs-typescript",
+  "version": "1.0.0",
+  "description": "Project structure for new expressjs/nodejs applications using TypeScript",
+  "main": "index.js",
+  "scripts": {},
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whatsaaaa/starting-template-expressjs-nodejs-typescript.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "TypeScript",
+    "express",
+    "boilerplate"
+  ],
+  "author": "@whatsaaaa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/whatsaaaa/starting-template-expressjs-nodejs-typescript/issues"
+  },
+  "homepage": "https://github.com/whatsaaaa/starting-template-expressjs-nodejs-typescript#readme"
+}
