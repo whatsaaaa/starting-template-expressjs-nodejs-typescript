@@ -31,7 +31,19 @@ export const env = {
     },
     paths: {
       controllers: getEnvPaths("APPLICATION_CONTROLLERS"),
+      migrations: getEnvPaths("APPLICATION_MIGRATIONS"),
+      entities: getEnvPaths("APPLICATION_ENTITIES"),
     },
+  },
+  db: {
+    type: getEnv("DB_CONNECTION"),
+    host: getEnv("DB_HOST"),
+    port: getEnv("DB_PORT"),
+    username: getEnv("DB_USERNAME"),
+    password: getEnv("DB_PASSWORD"),
+    database: getEnv("DB_DATABASE"),
+    synchronize: toBool(getEnv("DB_SYNCHRONIZE")),
+    logging: getEnv("DB_LOGGING"),
   },
   log: {
     level: getEnv("LOG_LEVEL"),
