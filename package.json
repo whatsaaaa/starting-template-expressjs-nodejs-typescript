@@ -4,7 +4,11 @@
   "description": "Project structure for new expressjs/nodejs applications using TypeScript",
   "main": "src/app.ts",
   "scripts": {
-    "start": "nodemon src/app.ts"
+    "start": "nps",
+    "test": "npm start test",
+    "build": "npm start build",
+    "presetup": "yarn install",
+    "setup": "npm start config && npm start setup.script"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -28,9 +32,11 @@
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/body-parser": "^1.19.0",
+    "@types/chalk": "^2.2.0",
     "@types/cors": "^2.8.8",
     "@types/express": "^4.17.8",
     "@types/faker": "^5.1.4",
+    "@types/figlet": "^1.2.1",
     "@types/multer": "^1.4.4",
     "@types/node": "^14.14.6",
     "@types/uuid": "^8.3.0",
@@ -42,12 +48,14 @@
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "chalk": "^4.1.0",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "faker": "^5.1.0",
+    "figlet": "^1.5.0",
     "multer": "^1.4.2",
     "nps": "^5.10.0",
     "nps-utils": "^1.7.0",
