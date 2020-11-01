@@ -2,7 +2,7 @@ import { configure, format, transports } from "winston";
 
 import { env } from "../env";
 
-export const winstonLoader = () => {
+export const winstonBuilder = () => {
   configure({
     transports: [
       new transports.Console({
