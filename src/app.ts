@@ -15,10 +15,10 @@ const log = new Logger(__filename);
 
 winstonBuilder();
 typediBuilder();
-typeormBuilder();
-
-expressBuilder()
-  .then(() => {
-    terminal(log);
-  })
-  .catch((error) => log.error("Application crashed: " + error));
+typeormBuilder().then(() => {
+  expressBuilder()
+    .then(() => {
+      terminal(log);
+    })
+    .catch((error) => log.error("Application crashed: " + error));
+});

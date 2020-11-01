@@ -12,9 +12,9 @@ module.exports = {
       description: "Serves the app and watches for changes",
     },
     setup: {
-      script: series("npm install", "nps db.setup"),
+      script: series("yarn install", "nps db.setup"),
       description:
-        "Setup the development environment. Does NPM install and DB setup",
+        "Setup the development environment. Does yarn install and DB setup",
     },
     config: {
       script: series(run("./commands/tsconfig.ts")),
@@ -133,7 +133,7 @@ function copyDir(source, target) {
 }
 
 function run(path) {
-  return `ts-node --transpileOnly ${path}`;
+  return `ts-node --transpile-only ${path}`;
 }
 
 function tslint(path) {
