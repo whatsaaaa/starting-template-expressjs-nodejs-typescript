@@ -6,11 +6,13 @@ import {
   Post,
   Put,
   Delete,
+  OnUndefined,
 } from "routing-controllers";
 import { UserService } from "../services/UserService";
 import { User } from "../models/User";
 import { BaseUser } from "./requests/BaseUser";
 import { CreateUser } from "./requests/CreateUser";
+import { UserNotFoundError } from "../exceptions/UserNotFoundError";
 
 @JsonController("/users")
 export class UserController {
@@ -22,6 +24,7 @@ export class UserController {
   }
 
   @Get("/:id")
+  @OnUndefined(UserNotFoundError)
   public getOne(@Param("id") id: string) {
     return this.userService.findOne(id);
   }
