@@ -31,6 +31,7 @@ export const env = {
     },
     paths: {
       controllers: getEnvPaths("APPLICATION_CONTROLLERS"),
+      middlewares: getEnvPaths("APPLICATION_MIDDLEWARES"),
       migrations: getEnvPaths("TYPEORM_MIGRATIONS"),
       migrationsDir: getEnvPaths("TYPEORM_MIGRATIONS"),
       entities: getEnvPaths("TYPEORM_ENTITIES"),

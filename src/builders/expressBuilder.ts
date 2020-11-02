@@ -9,6 +9,7 @@ export const expressBuilder = async () => {
     classTransformer: env.app.express.useClassTransform,
     routePrefix: env.app.routePrefix,
     controllers: env.app.paths.controllers,
+    middlewares: env.app.paths.middlewares,
   });
 
   if (!env.isTest) {
