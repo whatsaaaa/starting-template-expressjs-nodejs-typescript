@@ -2,7 +2,7 @@ import { Action } from "routing-controllers";
 import { Container } from "typedi";
 
 import { Logger } from "../../utils/logger";
-import { AuthService } from "./AuthService";
+import { AuthService } from "../services/AuthService";
 
 export function authorizationChecker(): (
   action: Action,
