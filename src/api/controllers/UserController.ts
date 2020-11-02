@@ -9,6 +9,7 @@ import {
   OnUndefined,
   Authorized,
 } from "routing-controllers";
+
 import { UserService } from "../services/UserService";
 import { User } from "../models/User";
 import { BaseUser } from "./requests/BaseUser";

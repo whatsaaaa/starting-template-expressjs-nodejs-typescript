@@ -40,6 +40,7 @@ export const env = {
   },
   jwt: {
     secret: getEnv("JWT_SECRET"),
+    expiration: getEnv("JWT_EXPIRATION"),
   },
   db: {
     type: getEnv("TYPEORM_CONNECTION"),

@@ -1,10 +1,12 @@
 import { Service } from "typedi";
 import { OrmRepository } from "typeorm-typedi-extensions";
 import { v1 as uuid } from "uuid";
+import jwt from "jsonwebtoken";
 
 import { Logger, LoggerInterface } from "../../logger/Logger";
 import { User } from "../models/User";
 import { UserRepository } from "../repositories/UserRepository";
+import { env } from "../../env";
 
 @Service()
 export class UserService {
@@ -40,5 +42,41 @@ export class UserService {
     this.log.info("Delete user");
     await this.userRepository.delete(id);
     return "success";
+  }
+
+  public async login(username: string, password: string): Promise<string> {
+    const user = await this.validUser(username, password);
+    if (!user) throw new Error("Invalid Credentials.");
+
+    let token = jwt.sign(
+      {
+        username: (await user).username,
+        email: (await user).email,
+      },
+      env.jwt.secret,
+      {
+        expiresIn: `${env.jwt.expiration}s`,
+      }
+    );
+
+    return token;
+  }
+
+  private async validUser(username: string, password: string): Promise<User> {
+    const user = await this.userRepository.findOne({
+      where: {
+        username,
+      },
+    });
+
+    if (!user) {
+      return undefined;
+    }
+
+    if (await User.comparePassword(user, password)) {
+      return user;
+    }
+
+    return undefined;
   }
 }
