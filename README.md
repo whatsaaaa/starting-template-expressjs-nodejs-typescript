@@ -8,6 +8,14 @@
 
 <br />
 
+## > Project Summary
+
+This template should provide you with a ready to develop application with functioning authentication using **JWT** tokens.
+
+You can find an example controller **UserController** to see how can you develop new endpoints and database tables.
+
+Also this template will include database seeds and datbase migrations for mysql User table.
+
 ## > Getting Started
 
 ### 1. Prerequsits
