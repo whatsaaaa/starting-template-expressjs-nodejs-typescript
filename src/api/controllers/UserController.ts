@@ -7,6 +7,7 @@ import {
   Put,
   Delete,
   OnUndefined,
+  Authorized,
 } from "routing-controllers";
 import { UserService } from "../services/UserService";
 import { User } from "../models/User";
@@ -14,6 +15,7 @@ import { BaseUser } from "./requests/BaseUser";
 import { CreateUser } from "./requests/CreateUser";
 import { UserNotFoundError } from "../exceptions/UserNotFoundError";
 
+@Authorized()
 @JsonController("/users")
 export class UserController {
   constructor(private userService: UserService) {}

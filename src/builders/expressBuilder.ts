@@ -1,6 +1,7 @@
 import { Application } from "express";
 import { createExpressServer } from "routing-controllers";
 
+import { authorizationChecker } from "../api/auth/authorizationChecker";
 import { env } from "../env";
 
 export const expressBuilder = async () => {
@@ -11,6 +12,8 @@ export const expressBuilder = async () => {
     defaultErrorHandler: false,
     controllers: env.app.paths.controllers,
     middlewares: env.app.paths.middlewares,
+
+    authorizationChecker: authorizationChecker(),
   });
 
   if (!env.isTest) {

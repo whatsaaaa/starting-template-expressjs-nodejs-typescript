@@ -23,6 +23,7 @@ export class ErrorHandlerMiddleware implements ExpressErrorMiddlewareInterface {
     res.status(error.httpCode || 500);
     res.json({
       status: "err",
+      name: error.name,
       message: error.message,
       errors: error[`errors`] || [],
     });

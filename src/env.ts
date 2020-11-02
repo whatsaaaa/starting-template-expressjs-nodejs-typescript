@@ -38,6 +38,9 @@ export const env = {
       entitiesDir: getEnvPaths("TYPEORM_ENTITIES_DIR"),
     },
   },
+  jwt: {
+    secret: getEnv("JWT_SECRET"),
+  },
   db: {
     type: getEnv("TYPEORM_CONNECTION"),
     host: getEnv("TYPEORM_HOST"),
