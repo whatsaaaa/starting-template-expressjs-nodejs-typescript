@@ -7,17 +7,20 @@ import {
   Put,
   Delete,
 } from "routing-controllers";
+import { UserService } from "../services/UserService";
 
 @JsonController("/users")
 export class UserController {
+  constructor(private userService: UserService) {}
+
   @Get()
   public getAll() {
-    return "This action returns all users.";
+    return this.userService.find();
   }
 
   @Get("/:id")
-  public getOne(@Param("id") id: number) {
-    return "This action returns user #" + id;
+  public getOne(@Param("id") id: string) {
+    return this.userService.findOne(id);
   }
 
   @Post()
@@ -26,12 +29,12 @@ export class UserController {
   }
 
   @Put("/:id")
-  public put(@Param("id") id: number, @Body() user: any) {
+  public put(@Param("id") id: string, @Body() user: any) {
     return "This action updates user #" + id;
   }
 
   @Delete("/:id")
-  public delete(@Param("id") id: number) {
+  public delete(@Param("id") id: string) {
     return "This action deletes user #" + id;
   }
 }
