@@ -1,4 +1,12 @@
-# starting-template-expressjs-nodejs-typescript
+<h1 align="center">Expressjs/Nodejs/TypeScript Starting Template</h1>
+
+<p align="center">
+  <b>Starting template to build a Node.js RESTful API Service with code written in TypeScript</b></br>
+  <span>Inspired by the awesome boilerplate <a href="https://github.com/w3tecch/express-typescript-boilerplate">w3rec</a></br>
+  <sub>Made by <a href="https://github.com/whatsaaaa">@whatsaaaa</a>
+</p>
+
+<br />
 
 ## > Getting Started
 
@@ -69,3 +77,11 @@ All scripts are defined in the `package-scripts.js` file. Here we will list the 
 ### Database Seeding
 
 - Run `yarn start db.seed` to seed your seeds into the database
+
+## > Features
+
+- [TypeDI](https://github.com/pleerock/typedi)
+- [TypeORM](https://github.com/typeorm/typeorm)
+- [routing-controllers](https://github.com/pleerock/routing-controllers)
+- [class-validator](https://github.com/pleerock/class-validator)
+- [Helmet](https://helmetjs.github.io/)
