@@ -78,6 +78,9 @@ All scripts are defined in the `package-scripts.js` file. Here we will list the 
 
 - Run `yarn start db.seed` to seed your seeds into the database
 
+</br>
+</br>
+
 ## > Features
 
 - [TypeDI](https://github.com/pleerock/typedi)
