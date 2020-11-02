@@ -18,7 +18,7 @@ Download this repository on your machine. Configure package.json (change author,
 
 After that copy the `.env.example` file and rename it to just `.env`. In this file add your configuration informations such as database connection information.
 
-Now you are ready yo setup your application.
+Now you are ready to setup your application.
 
 ```bash
 yarn run setup
