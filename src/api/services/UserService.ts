@@ -1,6 +1,6 @@
 import { Service } from "typedi";
 import { OrmRepository } from "typeorm-typedi-extensions";
-import uuid from "uuid";
+import { v1 as uuid } from "uuid";
 
 import { Logger, LoggerInterface } from "../../logger/Logger";
 import { User } from "../models/User";
@@ -24,8 +24,8 @@ export class UserService {
   }
 
   public async create(user: User): Promise<User> {
-    this.log.info("Create new user => ", user.toString());
-    user.id = uuid.v1();
+    this.log.info("Create a new user => ", user.toString());
+    user.id = uuid();
     const newUser = await this.userRepository.save(user);
     return newUser;
   }
@@ -36,9 +36,9 @@ export class UserService {
     return this.userRepository.save(user);
   }
 
-  public async delete(id: string): Promise<void> {
+  public async delete(id: string): Promise<string> {
     this.log.info("Delete user");
     await this.userRepository.delete(id);
-    return;
+    return "success";
   }
 }

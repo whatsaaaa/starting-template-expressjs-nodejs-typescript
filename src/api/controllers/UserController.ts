@@ -8,6 +8,9 @@ import {
   Delete,
 } from "routing-controllers";
 import { UserService } from "../services/UserService";
+import { User } from "../models/User";
+import { BaseUser } from "./requests/BaseUser";
+import { CreateUser } from "./requests/CreateUser";
 
 @JsonController("/users")
 export class UserController {
@@ -24,17 +27,33 @@ export class UserController {
   }
 
   @Post()
-  public post(@Body() user: any) {
-    return "This action creates new user";
+  public create(@Body() body: CreateUser): Promise<User> {
+    const user = new User();
+    user.email = body.email;
+    user.firstName = body.firstName;
+    user.lastName = body.lastName;
+    user.password = body.password;
+    user.username = body.username;
+
+    return this.userService.create(user);
   }
 
   @Put("/:id")
-  public put(@Param("id") id: string, @Body() user: any) {
-    return "This action updates user #" + id;
+  public update(
+    @Param("id") id: string,
+    @Body() body: BaseUser
+  ): Promise<User> {
+    const user = new User();
+    user.email = body.email;
+    user.firstName = body.firstName;
+    user.lastName = body.lastName;
+    user.username = body.username;
+
+    return this.userService.update(id, user);
   }
 
   @Delete("/:id")
-  public delete(@Param("id") id: string) {
-    return "This action deletes user #" + id;
+  public delete(@Param("id") id: string): Promise<string> {
+    return this.userService.delete(id);
   }
 }
